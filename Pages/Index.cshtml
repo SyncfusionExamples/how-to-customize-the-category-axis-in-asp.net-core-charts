@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    List<LayoutData> SalesData = new List<LayoutData>()
+    {
+       new LayoutData{ Month = "2023-Jan", Sales = 36},
+       new LayoutData{ Month = "2023-Feb", Sales = 62},
+       new LayoutData{ Month = "2023-Mar", Sales = 81},
+       new LayoutData{ Month = "2023-Apr", Sales = 59},
+       new LayoutData{ Month = "2023-May", Sales = 89},
+       new LayoutData{ Month = "2023-Jun", Sales = 72},
+    };
+
+    List<LayoutData> SalesData2 = new List<LayoutData>()
+    {
+       new LayoutData{ Month = "2023-Jul", Sales = 43},
+       new LayoutData{ Month = "2023-Aug", Sales = 46},
+       new LayoutData{ Month = "2023-Sep", Sales = 55},
+       new LayoutData{ Month = "2023-Oct", Sales = 63},
+       new LayoutData{ Month = "2023-Nov", Sales = 57},
+       new LayoutData{ Month = "2023-Dec", Sales = 80}
+    };
+}
+
+<ejs-chart id="chart" title="Sales - Yearly Performance">
+    <e-chart-primaryxaxis valueType=Category
+                          labelPlacement=OnTicks
+                          edgeLabelPlacement=Shift
+                          isIndexed=true></e-chart-primaryxaxis>
+    <e-chart-primaryyaxis title="Sales"></e-chart-primaryyaxis>
+    <e-series-collection>
+        <e-series type=Column
+                  dataSource="SalesData"
+                  name="2023-H1"
+                  xName="Month"
+                  yName="Sales">
+        </e-series>
+        <e-series type=Column
+                  dataSource="SalesData2"
+                  name="2023-H2"
+                  xName="Month"
+                  yName="Sales">
+        </e-series>
+    </e-series-collection>
+</ejs-chart>
